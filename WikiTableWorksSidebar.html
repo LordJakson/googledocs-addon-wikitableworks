@@ -1,0 +1,116 @@
+<!--
+/**
+ * This is free and unencumbered software released into the public domain.
+ *
+ * Anyone is free to copy, modify, publish, use, compile, sell, or
+ * distribute this software, either in source code form or as a compiled
+ * binary, for any purpose, commercial or non-commercial, and by any
+ * means.
+ *
+ * In jurisdictions that recognize copyright laws, the author or authors
+ * of this software dedicate any and all copyright interest in the
+ * software to the public domain. We make this dedication for the benefit
+ * of the public at large and to the detriment of our heirs and
+ * successors. We intend this dedication to be an overt act of
+ * relinquishment in perpetuity of all present and future rights to this
+ * software under copyright law.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * For more information, please refer to <http://unlicense.org/>
+ */
+
+/**
+ * WikiableWorksSidebar.html
+ * Designed for Google Drive Spreadsheets
+ * Provides HTML sidebar preview for table conversion.
+ *
+ * @license The Unlicense http://unlicense.org/
+ * @version 1.0.1
+ * @updated 2015-03-20
+ * @author  The Pffy Authors https://github.com/pffy/
+ * @link    https://github.com/pffy/googledocs-addon-wikitableworks
+ *
+ */
+-->
+
+<style type="text/css">
+
+h2 {
+  font-weight: 900;
+}
+
+#wrap, div.wrapper {
+  margin: 5px;
+  padding: 5px;
+}
+
+table, textarea {
+  width: 98%;
+}
+
+table, td {
+  border: 1px solid silver;
+  border-spacing: 2px;
+}
+
+textarea {
+  height: 300px;
+}
+
+img.spinner {
+  vertical-align: middle;
+  width: 25px;
+  height: 25px;
+  padding: 2px;
+}
+
+</style>
+
+<script>
+
+  /**
+    * Asynchronous client-side methods
+    */
+  function saveWiki() {
+    onAction();
+    google.script.run.withFailureHandler(onFailure)
+      .withSuccessHandler(onSavedWiki)
+      .saveAsWiki();
+  }
+
+  /**
+    * Callback functions
+    */
+  function onSavedWiki(url) {
+    var m = document.getElementById('msg');
+    m.innerHTML = '<br/>Saved as Wiki! <b><a href="' + url + '">View file</a></b> in Google Drive.';
+  }
+
+  function onFailure() {
+    var m = document.getElementById('msg');
+    m.innerHTML = '<br/><b>Oops! Your file did not save.</b>';
+  }
+
+  /**
+    * Helper functions
+    */
+  function onAction() {
+    var m = document.getElementById('msg');
+    m.innerHTML = '<br/>'
+      + '<img src="https://539c9773c55655b764378b26faa34869ae0cb65b-www.googledrive.com/host/0B3F4Yv4zuwaSLXFxZVB4U2stSjQ"'
+      + '  title="loading" alt="loading" width="25" height="25" class="spinner" />'
+      + '<b>Saving...</b>';
+  }
+
+
+</script>
+
+<!-- appended divs below -->
+<link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons.css">
