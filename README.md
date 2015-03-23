@@ -6,7 +6,7 @@
   + [Google Spreadsheets](http://www.google.com/sheets/about/) Add-On.
   + Converts Google Sheets (Google Docs Spreadsheets) selection into a wiki table.
   + Use tables on GitHub wikis, Wikipedia, MediaWiki or any wiki web site.
-  + Wait... What is a [wikitable](http://simple.wikipedia.org/wiki/Wikipedia:Wikitable)?
+  + Wait... What is a [wiki table](http://simple.wikipedia.org/wiki/Wikipedia:Wikitable)?
   + Save table to Google Drive with the `.wiki` file extension.
   + Edit the wiki file with compatible third-party Drive apps.
   + Uses the [WikiTableMaker](https://github.com/pffy/googledocs-addon-wikitable) object.
