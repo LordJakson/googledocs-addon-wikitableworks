@@ -55,7 +55,7 @@
     + **WikiTableWorksSidebar.html**
 
 > NOTE: While the Google Apps Script (.gs) server-side files can be named anything,
-The HTML files must match exact names.
+the HTML files must match exact names given. Otherwise, HtmlService cannot import client-side files.
 
 
 #### COPY AND PASTE
