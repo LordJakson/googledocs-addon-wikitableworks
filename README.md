@@ -28,7 +28,7 @@
   + [Install WikiTableWorks](https://chrome.google.com/webstore/detail/wikitableworks/fcidnbkcodoajhfbcaefikfemlggcpfp)
   from Google Chrome Web Store.
   + https://chrome.google.com/webstore/detail/wikitableworks/fcidnbkcodoajhfbcaefikfemlggcpfp
-  + **Recommended.** Apps and add-ons are actively [monitored and curated by Google](https://support.google.com/chrome_webstore/answer/1050586).
+  + **Recommended.** Apps and add-ons are actively [monitored and curated by Google](https://support.google.com/chrome_webstore/answer/1047776?hl=en).
 
 [![chromewebstore_badgewborder_v2_340x96](https://cloud.githubusercontent.com/assets/7258373/6788162/ee497942-d154-11e4-934d-ef386061181d.png)](https://chrome.google.com/webstore/detail/wikitableworks/fcidnbkcodoajhfbcaefikfemlggcpfp)
 
