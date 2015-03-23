@@ -15,6 +15,8 @@
 
 ## DETAILS
   + [INSTALL](#install)
+    + [CHROME WEB STORE INSTALL](#chrome-web-store-install)
+    + [MANUAL INSTALL](#manual-install)
   + [PERMISSIONS](#permissions)
   + [LICENSE](#license)
 
