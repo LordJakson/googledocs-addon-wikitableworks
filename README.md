@@ -38,7 +38,7 @@
 
 ### MANUAL INSTALL
 
-> **NOTE:** MANUAL INSTALLS ARE FOR DEVELOPERS OR POWER USERS.
+> **NOTE:** Manual installs are for developers or power users.
 
   + You can build your own copy of the app using the Google Docs Script Editor.
   + First, you will setup the project containers. Next, you will copy and paste the code. Finally, you will finish the install by closing the editor, refreshing the spreadsheet and authorizing the add-on.
