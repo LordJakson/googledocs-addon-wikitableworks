@@ -1,5 +1,7 @@
 # googledocs-addon-wikitableworks
 
+![pffy-googledocs-addon-wikitableworks-2](https://cloud.githubusercontent.com/assets/7258373/6757606/87b06d92-ceef-11e4-81b1-3b35caaddfcb.png)
+
 ## QUICK START
 
   + WikiTableWorks.
@@ -9,7 +11,7 @@
   + Wait... What is a [wiki table](http://simple.wikipedia.org/wiki/Wikipedia:Wikitable)?
   + Save table to Google Drive with the `.wiki` file extension.
   + Edit the wiki file with compatible third-party Drive apps.
-  + Uses the [WikiTableMaker](https://github.com/pffy/googledocs-addon-wikitable) object.
+  + Uses the [WikiTableMaker](https://github.com/pffy/googlescript-wikitable/) object.
   + Written in Google Apps Script.
 
 
