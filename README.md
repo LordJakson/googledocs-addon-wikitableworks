@@ -30,11 +30,15 @@
   + [Install WikiTableWorks](https://chrome.google.com/webstore/detail/wikitableworks/fcidnbkcodoajhfbcaefikfemlggcpfp)
   from Google Chrome Web Store.
   + https://chrome.google.com/webstore/detail/wikitableworks/fcidnbkcodoajhfbcaefikfemlggcpfp
-  + **Recommended.** Apps and add-ons are actively [monitored and curated by Google](https://support.google.com/chrome_webstore/answer/1047776?hl=en).
+  + **Recommended.**
+    + Apps and add-ons are actively [monitored and curated by Google](https://support.google.com/chrome_webstore/answer/1047776?hl=en).
+    + Better add-on management (install, removal, updates).
 
 [![chromewebstore_badgewborder_v2_340x96](https://cloud.githubusercontent.com/assets/7258373/6788162/ee497942-d154-11e4-934d-ef386061181d.png)](https://chrome.google.com/webstore/detail/wikitableworks/fcidnbkcodoajhfbcaefikfemlggcpfp)
 
 ### MANUAL INSTALL
+
+> **NOTE:** MANUAL INSTALLS ARE FOR DEVELOPERS OR POWER USERS.
 
   + You can build your own copy of the app using the Google Docs Script Editor.
   + First, you will setup the project containers. Next, you will copy and paste the code. Finally, you will finish the install by closing the editor, refreshing the spreadsheet and authorizing the add-on.
@@ -63,7 +67,7 @@ the HTML files must match exact names given. Otherwise, HtmlService cannot impor
 #### COPY AND PASTE
 
   + Copy all the contents of [**WikiTableMaker.gs**](https://raw.githubusercontent.com/pffy/googledocs-addon-wikitableworks/master/WikiTableMaker.gs) and paste them into **obj.gs**.
-  + Copy all the contents of [**WikiTableWorksAddOn.gs**](https://github.com/pffy/googledocs-addon-wikitableworks/blob/master/WikiTableWorksAddOn.gs) and paste them into **addon.gs**.
+  + Copy all the contents of [**WikiTableWorksAddOn.gs**](https://raw.githubusercontent.com/pffy/googledocs-addon-wikitableworks/master/WikiTableWorksAddOn.gs) and paste them into **addon.gs**.
   + Copy all the contents of [**WikiTableWorksSidebar.html**](https://raw.githubusercontent.com/pffy/googledocs-addon-wikitableworks/master/WikiTableWorksSidebar.html) and paste them into **WikiTableWorksSidebar.html**.
 
 #### FINISHING
