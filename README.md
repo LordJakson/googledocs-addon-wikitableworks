@@ -2,7 +2,7 @@
 
 ![pffy-googledocs-addon-wikitableworks-2](https://cloud.githubusercontent.com/assets/7258373/6757606/87b06d92-ceef-11e4-81b1-3b35caaddfcb.png)
 
-## QUICK START
+## ABOUT
 
   + WikiTableWorks.
   + [Google Spreadsheets](http://www.google.com/sheets/about/) Add-On.
