@@ -33,8 +33,8 @@
  *
  *
  * @license The Unlicense http://unlicense.org/
- * @version 1.0.1
- * @updated 2015-03-20
+ * @version 3
+ * @updated 2016-08-08
  * @author  The Pffy Authors https://github.com/pffy/
  * @link    https://github.com/pffy/googledocs-addon-wikitableworks
  *
@@ -42,7 +42,7 @@
 var product = {
 
   "name": "WikiTableWorks",
-  "version": "1.0.1",
+  "version": "3",
 
   "license": "This is free, libre and open source software.",
   "licenseUrl": "http://unlicense.org/",

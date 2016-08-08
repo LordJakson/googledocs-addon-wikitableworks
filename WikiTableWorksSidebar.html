@@ -32,8 +32,8 @@
  * Provides HTML sidebar preview for table conversion.
  *
  * @license The Unlicense http://unlicense.org/
- * @version 1.0.1
- * @updated 2015-03-20
+ * @version 3
+ * @updated 2016-08-08
  * @author  The Pffy Authors https://github.com/pffy/
  * @link    https://github.com/pffy/googledocs-addon-wikitableworks
  *
@@ -90,7 +90,7 @@ img.spinner {
     */
   function onSavedWiki(url) {
     var m = document.getElementById('msg');
-    m.innerHTML = '<br/>Saved as Wiki! <b><a href="' + url + '">View file</a></b> in Google Drive.';
+    m.innerHTML = '<br/>Saved as Wiki! <b><a target="_blank" href="' + url + '">View file</a></b> in Google Drive.';
   }
 
   function onFailure() {
