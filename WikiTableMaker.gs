@@ -38,7 +38,8 @@
  * @link    https://github.com/pffy/googlescript-wikitable
  *
  */
-var WikiTableMaker = function (range) {
+var WikiTableMaker = function (range) 
+{
 
   // parts
   var _rows = 0,
@@ -49,8 +50,6 @@ var WikiTableMaker = function (range) {
   // templates
   var _startTable = '{| class=wikitable',
       _endTable = '|}',
-      _newCellDelimiter = ' || ',
-      _newRowDelimiter = '|-'  + _CRLF + '| ',
       _emptyTable = _startTable + ' | ' + _endTable;
 
   // input-output
@@ -65,55 +64,141 @@ var WikiTableMaker = function (range) {
   _convert();
 
   // converts Range object into wikitable markup string
-  function _convert() {
-
+  function _convert() 
+  {
     // if empty, do not convert
-    if(Object.keys(_range).length < 1) {
+    if(Object.keys(_range).length < 1) 
+    {
       _wikiMarkup = _emptyTable;
       return false;
     }
 
     var output = '';
-
+    var notes = [];
+    
     _emptyRange = false;
 
     _rows = _range.getNumRows();
     _cols = _range.getNumColumns();
 
-    output += _startTable + _CRLF + _newRowDelimiter;
+    output += _startTable;
 
-    for (var i = 1; i <= _rows; i++) {
-
+    for(var y = 1; y <= _rows; y++) 
+    {
+     output += _CRLF+'|-';
+     var lastEmpty = false;
+      
       // each cell
-      for (var j = 1; j <= _cols; j++) {
-
-        if(j < _cols) {
-          output += _range.getCell(i,j).getValue()
-            + _newCellDelimiter;
-        } else {
-          output += _range.getCell(i,j).getValue();
+      for(var x = 1; x <= _cols; x++) 
+      {
+        var cell = _range.getCell(y,x);
+        var note = cell.getNote();
+        var merge = cell.getMergedRanges();
+        var align = cell.getHorizontalAlignment();
+        var weight = cell.getFontWeight();
+        var formula = cell.getFormula().trim();
+        var value = String(cell.getValue()).trim().replace("\n","<br/>");
+        var params = "";
+        var mergeOK = true;
+        
+        if(merge)
+        {
+          for(var i = 0; i < merge.length; i++) 
+          {
+            if(merge[i].getColumn() == cell.getColumn() && merge[i].getRow() == cell.getRow())
+            {
+              if(merge[i].getHeight() > 1)
+              {params += 'rowspan="'+merge[i].getHeight()+'" ';}
+              else
+              {params += 'colspan="'+merge[i].getWidth()+'" ';}
+            }
+            else
+            {mergeOK = false;}
+          }
+        }
+        
+        if(!mergeOK)
+        {continue;}
+        
+        if(weight == "bold")
+        {
+          output += _CRLF+"! ";
+          lastEmpty = false;
+        }
+        else
+        if(value == "")
+        {
+          if(lastEmpty)
+          {output += " || ";}
+          else
+          {output += _CRLF+"| ";}
+          lastEmpty = true;
+        }
+        else
+        {
+          output += _CRLF+"| ";
+          lastEmpty = false;
         }
 
-      }
-
-      // start new row OR end table
-      if(i < _rows) {
-        output += _CRLF + _newRowDelimiter;
-      } else {
-        output += _CRLF + _endTable;
-      }
+        if(value != "")
+        {       
+          if(align != "")
+          {
+            if(align.indexOf("left") >= 0)
+            {params += 'style="text-align:left;" ';}
+            else
+              if(align.indexOf("right") >= 0)
+              {params += 'style="text-align:right;" ';}
+            else
+              if(align.indexOf("center") >= 0)
+              {params += 'style="text-align:center;" ';}
+          }
+          
+          if(params != "")
+          {output += params+"| ";}
+          
+          if(formula != "" && formula.substr(0,11) == "=HYPERLINK(")
+          {
+            var splitted = JSON.parse('[' + formula.substring(11,formula.length-1) + ']');
+            
+            if(splitted.length > 1)
+            {output += "[["+splitted[0]+"|"+splitted[1]+"]]";}
+            else
+            {output += "[["+splitted[0]+"]]";}                    
+          }
+          else
+          {output += value;}
+        }                
+        
+        if(note != "")
+        {
+         var index = notes.indexOf(note); 
+         if(index < 0) 
+         {
+          index = notes.length;
+          notes.push(note);
+          output += '<ref name="ref_'+index+'">'+note+'</ref>';
+         }
+         else
+         {output += '<ref name="ref_'+index+'"/>';}          
+        }
+      }     
     }
-
+    output += _CRLF + _endTable;
+    
+    if(notes.length > 0)
+    {output += _CRLF + "<references/>";}
+    
     _wikiMarkup = output;
   }
 
   return {
-
     /**
      * Returns the string representation of this object.
      * @return string text
      */
-    toString: function() {
+    toString: function() 
+    {
       return this.getWikiMarkup();
     },
 
@@ -121,7 +206,8 @@ var WikiTableMaker = function (range) {
      * Returns wikitable markup text string.
      * @return string text
      */
-    getWikiMarkup: function() {
+    getWikiMarkup: function() 
+    {
       return _wikiMarkup;
     },
 
@@ -129,7 +215,8 @@ var WikiTableMaker = function (range) {
      * Returns spreadsheet Range of values.
      * @return Range
      */
-    getRange: function() {
+    getRange: function() 
+    {
       return _range;
     },
 
@@ -137,7 +224,8 @@ var WikiTableMaker = function (range) {
      * Sets spreadsheet Range of values.
      * @return this object
      */
-    setRange: function(range) {
+    setRange: function(range)
+    {
       _range = (typeof range === 'object') ? _range = range : {};
       _convert();
       return this;
@@ -147,7 +235,8 @@ var WikiTableMaker = function (range) {
      * Returns true if spreadsheet range is empty; false, otherwise.
      * @return boolean value
      */
-    isRangeEmpty: function() {
+    isRangeEmpty: function() 
+    {
       return _emptyRange;
     }
 
